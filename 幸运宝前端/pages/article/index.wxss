@@ -1,0 +1,50 @@
+.article-page{
+
+}
+
+.add-new-article{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  border:1px solid #d4237a;
+  position: fixed;
+  bottom: 30rpx;
+  left:30rpx;
+  color:#d4237a;
+  font-size: 30px;
+  text-align: center;
+  line-height: 100rpx;
+}
+.check{
+  width: 84rpx;
+  height: 84rpx;
+  position: fixed;
+  top: 40rpx;
+  right:40rpx;
+}
+
+.page-title{
+  line-height: 100rpx;
+  font-size:36rpx;
+}
+.left-part{
+  flex:1;
+  padding-left:20rpx;
+}
+.right-part{
+  flex:1;
+  text-align:right;
+  margin-right:70rpx;
+}
+.new-publish{
+  margin-top:60rpx;
+}
+.header-title{
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+}
+.header-title image{
+  width: 50rpx;
+  height: 50rpx;
+}

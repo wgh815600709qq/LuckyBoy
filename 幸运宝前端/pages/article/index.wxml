@@ -1,0 +1,18 @@
+<view class="article-page">
+  <view class="new-publish">
+      <view class="header-title">
+        <image src="/images/NEW.png"></image>
+        <text class="page-title">最新文章</text>
+      </view>
+      <view wx:for="{{list}}" data-id="{{item.id}}" class="cell-item" bind:tap="goDetail">
+        <view class="left-part">
+            <text>{{item._title}}</text>
+        </view>
+        <view class="right-part">
+            <text>{{item.time}}</text>
+        </view>
+    </view>
+  </view>
+  <view class="add-new-article" bindtap='addNew'>+</view>
+  <image bind:tap="checkArticles" wx:if="{{userInfo._identity > 0}}" class="check" src="/images/check.png"></image>
+</view>

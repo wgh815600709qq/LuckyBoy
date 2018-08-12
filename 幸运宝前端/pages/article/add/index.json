@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "发表新文",
+  "usingComponents": {
+    "btn": "/components/button/index",
+    "singe-picker": "/components/singe-picker/index"
+  }
+}

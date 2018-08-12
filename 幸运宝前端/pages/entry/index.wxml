@@ -1,0 +1,8 @@
+<view>
+    <loading></loading>
+    <view>{{userInfo._nickname}}</view>
+    <button wx:if="{{showBtn}}" style="position:fixed;bottom:0rpx;width:100%;background-image: linear-gradient(90deg, #d4237a 0%,  #d81e06 100%);" 
+    type="primary" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">
+        授权本应用
+    </button>
+</view>

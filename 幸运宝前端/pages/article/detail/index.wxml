@@ -1,0 +1,26 @@
+<view class="article-detail">
+    <view class="title">{{detail._title}}</view>
+    <view class="line">
+        <view class="author">{{detail.User._nickname}}</view>
+        <view class="time">{{detail.created_at}}</view>
+    </view>
+    <view class="content">{{detail._content}}</view>
+    <view class="line">
+        <view class="praise">
+            <image src="/images/praise.png"></image>
+            <text>{{detail.praise_num}}</text>
+        </view>
+        <view class="comment">
+            <image src="/images/comment.png"></image>
+            <text>{{detail.comment_num}}</text>
+        </view>
+        <view class="comment" wx:if="{{detail.User._identity > 0 && detail._status == 0}}" bindtap="allowAccess">
+            <image src="/images/allow.png"></image>
+            <text>通过</text>
+        </view>
+        <view class="comment" wx:if="{{detail.User._identity > 0 && detail._status == 0}}">
+            <image src="/images/refuse.png"></image>
+            <text>驳回</text>
+        </view>
+    </view>
+</view>

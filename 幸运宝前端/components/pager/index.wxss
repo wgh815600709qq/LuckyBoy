@@ -1,0 +1,17 @@
+/* components/pager/index.wxss */
+.pager{
+  display: flex;
+  height: 60rpx;
+  font-size:24rpx;
+  align-items: center;
+}
+input{
+  width: 120rpx;
+  height: 60rpx;
+  border:1px solid #eee;
+}
+.btn{
+  color:#398eff;
+  margin: 10rpx 20rpx;
+  text-decoration: underline;
+}

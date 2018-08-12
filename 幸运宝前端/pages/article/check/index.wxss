@@ -1,0 +1,15 @@
+/* pages/article/check/index.wxss */
+.left-part{
+    flex:1;
+    padding-left:20rpx;
+}
+.right-part{
+    flex:1;
+    text-align:right;
+    margin-right:70rpx;
+}
+.pager-style{
+  position:fixed;
+  bottom:30rpx;
+  left:70rpx;
+}

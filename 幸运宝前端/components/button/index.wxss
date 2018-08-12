@@ -1,0 +1,24 @@
+.ac-btn{
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 80rpx);
+    margin: 40rpx;
+    background-image: linear-gradient(90deg, #d4237a 0%,  #d81e06 100%);
+    border-radius: 4px;
+    color: #fff;
+    font-size: 36rpx;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 96rpx;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.ac-btn:active{
+    background: #398EFF;
+    border-radius: 4px;
+}
+.ac-btn.btn-disabled{
+    opacity: 0.5;
+    cursor:not-allowed;
+}

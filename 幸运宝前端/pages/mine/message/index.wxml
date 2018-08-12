@@ -1,0 +1,11 @@
+<!--pages/mine/message/index.wxml-->
+<wxs src="../../../utils/utils.wxs" module="tool"></wxs>
+ <view wx:for="{{list}}" data-id="{{item.id}}" class="cell-item" bind:tap="goDetail">
+        <view class="left-part">
+            <image src="/images/NEW.png" wx:if="{{item._read == 0}}"></image>
+            <text>{{item.User._nickname}}</text>
+        </view>
+        <view class="right-part">
+            <text>{{tool.formatTime(item.created_at)}}</text>
+        </view>
+</view>

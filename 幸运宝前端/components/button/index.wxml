@@ -1,0 +1,3 @@
+<view class="{{['ac-btn', disabled ? 'btn-disabled' : '']}}" catchtap="btnClick">
+    <slot></slot>
+</view>

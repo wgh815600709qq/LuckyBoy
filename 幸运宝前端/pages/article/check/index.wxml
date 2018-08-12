@@ -1,0 +1,12 @@
+<!-- pages/article/check/index.wxml -->
+<view>
+    <view wx:for="{{list}}" data-id="{{item.id}}" class="cell-item" bind:tap="goDetail">
+        <view class="left-part">
+            <text>{{item._title}}</text>
+        </view>
+        <view class="right-part">
+            <text>{{item.time}}</text>
+        </view>
+    </view>
+    <pager pageNo="{{pageNo}}" total="{{total}}" class="pager-style"></pager>
+</view>

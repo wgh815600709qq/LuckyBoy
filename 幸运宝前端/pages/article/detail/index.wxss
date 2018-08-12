@@ -1,0 +1,40 @@
+.title{
+    font-size:52rpx;
+    margin:20rpx 0;
+    text-align:center;
+}
+.line{
+    display: flex;
+    align-items: center;
+}
+.author{
+  font-size:24rpx;
+  color:#333;
+  flex:1;
+  text-align: right;
+  margin-right:20rpx;
+}
+.content{
+  margin: 40rpx;
+  padding: 20rpx;
+  word-break:break-word;
+  font-size:34rpx;
+}
+.time{
+  font-size:24rpx;
+  color:#333;
+  flex:1;
+  text-align: left;
+  margin-left:20rpx;
+}
+.praise{
+  margin: 0 40rpx;
+}
+.comment{
+  margin: 0 40rpx;
+}
+.praise image, .comment image{
+    width: 44rpx;
+    height: 44rpx;
+    margin-right: 10rpx;
+}

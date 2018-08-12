@@ -1,0 +1,30 @@
+/* pages/article/add/index.wxss */
+.item{
+    margin: 20rpx 40rpx;
+    border-bottom: 1px solid #d9d9d9;
+    font-size: 34rpx;
+    padding: 24rpx 0;
+    color: #000000;
+    letter-spacing: 0;
+}
+.placeholder{
+    color: #ccc;
+}
+.item .left-align{
+    display: block;
+    text-align: left;
+}
+.title{
+    font-size: 28rpx;
+    color: #888FA0;
+    margin:20rpx 0;
+}
+.item textarea{
+  border:1px solid #eee;
+  height:250px;
+  width:100%;
+  border-radius: 8rpx;
+}
+.mf-20{
+  margin-left: 40rpx;
+}

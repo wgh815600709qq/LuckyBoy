@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/entry/index",
+    "pages/index/index",
+    "pages/article/index",
+    "pages/mine/index",
+    "pages/mall/index",
+    "pages/article/add/index",
+    "pages/article/check/index",
+    "pages/article/detail/index",
+    "pages/mine/message/index",
+    "pages/mine/message/detail/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#d4237a",
+    "navigationBarTextStyle": "white",
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "幸运宝"
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#d4237a",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "iconPath": "images/tabbar/1-1.png",
+        "selectedIconPath": "images/tabbar/1-2.png",
+        "pagePath": "pages/article/index",
+        "text": "宝宝精文"
+      },
+      {
+        "iconPath": "images/tabbar/2-1.png",
+        "selectedIconPath": "images/tabbar/2-2.png",
+        "pagePath": "pages/mall/index",
+        "text": "宝宝商城"
+      },
+      {
+        "iconPath": "images/tabbar/3-1.png",
+        "selectedIconPath": "images/tabbar/3-2.png",
+        "pagePath": "pages/mine/index",
+        "text": "我的"
+      }
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+.mine{
+  background-color: #fff;
+}
+.header{
+  width: 100%;
+  height: 400rpx;
+  display: flex;
+  background-image: linear-gradient(to bottom, #d4237a,  pink);
+}
+.header image{
+  width:100rpx;
+  height:100rpx;
+  border-radius: 50%;
+}
+.header .left{
+  flex-basis: 200rpx;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+}
+.header .right{
+  flex: 1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
+}
+.right .item{
+  margin: 10rpx 0;
+  font-size:30rpx;
+  color:#333;
+}
+
+.container{
+ margin-top:40rpx;
+ background-color: #fff;
+}
+.bardge{
+  flex:1;
+  text-align:right;
+  margin-right:70rpx;
+  color:red;
+}

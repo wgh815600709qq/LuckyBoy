@@ -1,0 +1,15 @@
+/* pages/mine/message/detail/index.wxss */
+.break{
+    word-break: break-all;
+    margin-right:40rpx;
+}
+.title{
+    font-size: 36rpx;
+    color:#398eff;
+    margin:20rpx;
+}
+.content{
+    font-size: 32rpx;
+    color:#333;
+    margin-left:40rpx;
+}

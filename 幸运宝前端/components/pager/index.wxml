@@ -1,0 +1,7 @@
+<view class="pager">
+  <text>{{pageNo}}/{{totalPage}}</text>
+  <span class="btn">上一页</span>
+  <span class="btn">下一页</span>
+  <input type="number" value="{{turnPage}}" bindinput='inputChange'></input>页
+  <span class="btn">跳转</span> 
+</view>

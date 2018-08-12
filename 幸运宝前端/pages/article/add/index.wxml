@@ -1,0 +1,20 @@
+<view>
+  <view class="item">
+    <view class="title">文章标题</view>
+    <input placeholder='请输入文章标题' placeholder-class='placeholder' bindinput='titleChange'></input>
+  </view>
+  <view class="item">
+    <view class="title">文章分类</view>
+    <singe-picker range="{{articleClass}}" bindchange='classChange'>
+      <view class="left-align" wx:if="{{selectClass}}">{{selectClass}}</view>
+      <view class="placeholder left-align" wx:else>请选择分类</view>
+    </singe-picker>
+  </view>
+  <view class="item" style="border:none;">
+    <view class="title">文章内容
+      <span class="mf-20">(当前文章{{content.length}}字)</span>
+    </view>
+    <textarea placeholder="请输入内容" maxlength="-1" value="{{content}}" bindinput="contentChange"></textarea>
+  </view>
+  <btn bindtap="addNew">发表新文</btn>
+</view>

@@ -1,0 +1,36 @@
+<!--pages/mine/index.wxml-->
+<view class="mine">
+  <view class='header'>
+    <view class="left">
+      <image src="{{userInfo._avatar}}"></image>
+    </view>
+    <view class="right">
+      <view class="item">身份：{{(userInfo._identity == 0 && '游客')|| (userInfo._identity == 1 && '管理员')|| (userInfo._identity == 2 && '超级管理员')}}</view>
+      <view class="item">昵称：{{userInfo._nickname}}</view>
+      <view class="item">积分：{{userInfo._score}}</view>
+    </view>
+  </view>
+  <view class="container">
+    <view class="cell-item">
+      <image src="/images/order.png"></image>
+      <text>我的订单</text>
+    </view>
+    <view class="cell-item">
+      <image src="/images/score.png"></image>
+      <text>积分记录</text>
+    </view>
+    <view class="cell-item">
+      <image src="/images/article.png"></image>
+      <text>我的文章</text>
+    </view>
+    <view class="cell-item" data-url="./message/index" bindtap="linkTo">
+      <image src="/images/notice.png"></image>
+      <text>通知消息</text>
+      <text class="bardge" wx:if="{{unread}}">{{unread}}</text>
+    </view>
+  </view>
+  <view class="cell-item">
+    <image src="/images/address.png"></image>
+    <text>收货地址</text>
+  </view>
+</view>

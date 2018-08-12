@@ -1,0 +1,16 @@
+<view class="singe-picker" wx:if="{{show}}">
+    <view class="container">
+        <view class="header">
+            <span class="cancel" catchtap="cancel">取消</span>
+            <span class="confirm" catchtap="confirm">确定</span>
+        </view>
+        <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+            <picker-view-column>
+                <view wx:for="{{range}}" style="line-height: 50px">{{item}}</view>
+            </picker-view-column>
+        </picker-view>
+    </view>
+</view>
+<view class="slot" catchtap="open">
+    <slot></slot>
+</view>
