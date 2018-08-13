@@ -63,6 +63,14 @@ async function queryByOne(data) {
       }
     }
   })
+    // 文章 && 评论
+  var comments = await Comments.findAll({
+    where: {
+      aritcle_id: data.id
+    }
+  })
+  // 添加评论信息
+  res.comments = comments
   // 添加点赞字段
   res.is_praised = isPraised ? true : false
   return res
