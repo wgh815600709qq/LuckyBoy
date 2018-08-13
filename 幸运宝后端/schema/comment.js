@@ -1,30 +1,33 @@
 module.exports = function (sequelize, DataTypes) {
-    return sequelize.define('Integral', {
+    return sequelize.define('Comment', {
       id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
       },
-      _action: {
-        type: DataTypes.STRING,
+      article_id: {
+        type: DataTypes.INTEGER,
         allowNull: false
       },
-      _remark: {
-        type: DataTypes.STRING,
-        primaryKey: true,
+      reply_id: { // 评论人id
+        type: DataTypes.INTEGER,
         allowNull: false
       },
-      _integral: {
-        type: DataTypes.STRING,
+      replyman_id: { // 被评论人的id
+        type: DataTypes.INTEGER,
         allowNull: false
       },
       user_id: {
         type: DataTypes.INTEGER,
+        allowNull: false  
+      },
+      _content: {
+        type: DataTypes.STRING,
         allowNull: false
       }
     }, {
-      tableName: 'integral',
+      tableName: 'comment',
       paranoid: true // Soft deletion
     })
   }

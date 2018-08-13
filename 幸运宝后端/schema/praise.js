@@ -1,30 +1,26 @@
 module.exports = function (sequelize, DataTypes) {
-    return sequelize.define('Integral', {
+    return sequelize.define('Praise', {
       id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
       },
-      _action: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      _remark: {
-        type: DataTypes.STRING,
-        primaryKey: true,
-        allowNull: false
-      },
-      _integral: {
-        type: DataTypes.STRING,
+      article_id: {
+        type: DataTypes.INTEGER,
         allowNull: false
       },
       user_id: {
         type: DataTypes.INTEGER,
         allowNull: false
+      },
+      is_praised: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 1
       }
     }, {
-      tableName: 'integral',
+      tableName: 'praise',
       paranoid: true // Soft deletion
     })
   }
