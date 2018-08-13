@@ -1,0 +1,45 @@
+.date-picker{
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    z-index:10;
+    background-color:rgba(0,0,0,0.5);
+}
+.container{
+    background-color:#fff;
+    margin-top:calc(100vh - 682rpx);
+    color:#000;
+}
+
+.header{
+    height: 80rpx;
+    display: flex;
+    border-bottom: 1px solid #d4d4d4;
+    align-items: center;
+    padding:0 20rpx;
+    box-sizing:border-box;
+}
+.cancel{
+    text-align: left;
+    flex:1;
+    font-size: 32rpx;
+    color: #888FA0;
+    line-height:78rpx;
+    display:inline-block;
+}
+.confirm{
+    text-align: right;
+    flex:1;
+    font-size: 32rpx;
+    color: #d4237a;
+    line-height:78rpx;
+    display:inline-block;
+}
+picker-view-column{
+    text-align:center;
+}
+.slot{
+    text-align: center;
+}

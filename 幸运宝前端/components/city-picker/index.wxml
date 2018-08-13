@@ -1,0 +1,22 @@
+<view class="date-picker" wx:if="{{show}}">
+    <view class="container">
+        <view class="header">
+            <view class="cancel" bindtap="cancel">取消</view>
+            <view class="confirm" bindtap="confirm">确定</view>
+        </view>
+        <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+            <picker-view-column>
+                <view wx:for="{{provinces}}}" style="line-height: 50px">{{item}}(省/直辖市)</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view wx:for="{{citys}}" style="line-height: 50px">{{item}}市</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view wx:for="{{districts}}" style="line-height: 50px">{{item}}(区、地级市、县)</view>
+            </picker-view-column>
+        </picker-view>
+    </view>
+</view>
+<view class="slot" bindtap="open">
+    <slot></slot>
+</view>
