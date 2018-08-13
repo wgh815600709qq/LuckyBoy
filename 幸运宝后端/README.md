@@ -18,3 +18,24 @@
     3、点赞、互评
     4、定时任务去抓取接口、定时推送文章
     收获地址
+
+    *****商城****  加盟、审核、发布商品、购物
+
+    seller 商家表
+    seller-examine 商家审核表
+    seller-expense 商家续费表
+    expense-rule 续费规则表
+    product 产品表
+    product-downShelf-history 产品下架记录表
+    order 订单表
+    order-history 订单操作记录表
+    platform-income 平台收入表 [超级管理员查看权限、年月日]
+    refund 退款表
+    refund-history 退款操作记录
+
+    ****权限*****
+
+    支付类
+    right 权限表  [定义操作权限]
+    logistics 物流表 (可选)
+    log 日志表
