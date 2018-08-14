@@ -63,8 +63,8 @@ async function queryByOne(data) {
       }
     }
   })
-  User.hasMany(Comments,{foreignKey: 'replyman_id'})
-  Comments.belongsTo(User, {foreignKey: 'replyman_id'})
+  Comments.belongsTo(User, {as: 'ReplyMan', foreignKey: 'replyman_id'})
+  Comments.belongsTo(User, {as: 'Replyor', foreignKey: 'user_id'})
   // 文章 && 评论
   var comments = await Comments.findAll({
     where: {
@@ -72,7 +72,12 @@ async function queryByOne(data) {
     },
     include: [
       {
-        model: User
+        model: User,
+        as: 'ReplyMan'
+      },
+      {
+        model: User,
+        as: 'Replyor'
       }
     ]
   })
@@ -107,7 +112,7 @@ async function add(data) {
   }).then(res => {
     return success
   }).catch(err => {
-    return fail
+    return Object.assign(fail, {data: err})
   })
 }
 

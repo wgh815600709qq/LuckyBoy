@@ -38,6 +38,6 @@ module.exports = function (sequelize, DataTypes) {
     }, {
       tableName: 'address',
       paranoid: true // Soft deletion
-    })
+    }).sync()
   }
   

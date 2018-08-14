@@ -1,0 +1,13 @@
+{
+    "user": "root",
+    "password": "123456",
+    "host": "127.0.0.1",
+    "database": "lucky_baby",
+    "dir": "./schema",
+    "port": 3306,
+    "compile": "js",
+    "logging": false,
+    "space": 2,
+    "reverse": false,
+    "exportDefaultValue": true
+}

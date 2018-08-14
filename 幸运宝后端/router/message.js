@@ -22,7 +22,7 @@ router.post('/queryDetail', async (req, res, next) => {
 
 router.post('/queryUnread', async (req, res, next) => {
     var result = await queryUnread(req.body)
-    if (result) {
+    if (result != null) {
         res.send(Object.assign({}, success, { data: result }))
     } else {
         res.send(fail)
