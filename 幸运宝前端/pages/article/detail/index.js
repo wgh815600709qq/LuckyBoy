@@ -71,6 +71,10 @@ Page({
   },
   // 回复
   toReply(e) {
+    var item = e.currentTarget.dataset.item
+    if (wx.getStorageSync('userInfo').id === item.user_id) {
+      return
+    }
     this.reply_id = e.currentTarget.dataset.reply_id
     this.setData({
       openInput: true,
@@ -100,6 +104,11 @@ Page({
       },
       success: (res) => {
         this.getDetail()
+        this.setData({
+          openInput: false,
+          placeholder: '',
+          newComment: ''
+        })
       },
       fail: (err) => {
 

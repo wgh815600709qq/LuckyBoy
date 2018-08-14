@@ -51,3 +51,17 @@
 .placeholder{
   line-height: 90rpx;
 }
+
+.comments{
+  background-color: #edece8;
+  margin: 20rpx;
+  border-radius: 10rpx;
+}
+.comment-item{
+  font-size:28rpx;
+  padding:10rpx 40rpx;
+  margin:10rpx;
+}
+.person{
+  color:#398eff;
+}

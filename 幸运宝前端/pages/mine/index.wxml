@@ -19,8 +19,8 @@
       <image src="/images/score.png"></image>
       <text>积分记录</text>
     </view>
-    <view class="cell-item">
-      <image src="/images/article.png"></image>
+    <view class="cell-item" data-url="./my-article/index" bindtap="linkTo">
+      <image src="/images/article.png" ></image>
       <text>我的文章</text>
     </view>
     <view class="cell-item" data-url="./message/index" bindtap="linkTo">

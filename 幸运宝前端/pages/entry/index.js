@@ -50,7 +50,6 @@ function onLoad (options) {
     loginUtil.getUserInfo().then(userInfo => {
       console.log('userInfo', userInfo)
       this.updateUserInfo(userInfo)
-
       console.log('***************userInfo', this.data.userInfo)
     })
     wx.switchTab({

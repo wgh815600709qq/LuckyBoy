@@ -1,0 +1,11 @@
+<wxs src="../../../utils/utils.wxs" module="tool"/>
+<view wx:for="{{list}}" class="cell-item" bindtap="goDetail" data-id="{{item.id}}">
+    <view class="left-part">
+        <image src="/images/allow.png" wx:if="{{item._status>0}}"></image>
+        <image src="/images/wait.png" wx:else></image>
+        <text>{{item._title}}</text>
+    </view>
+    <view class="right-part">
+        <text>{{tool.formatTime(item.created_at)}}</text>
+    </view>
+</view>

@@ -28,6 +28,11 @@
         <button type="mini" bind:tap="sendMsg">发送</button>
     </view>
     <view class="comments">
-        <view wx:for="{{detail.comments}}" bindtap="toReply">{{item._content}}</view>
+        <view wx:for="{{detail.comments}}" bindtap="toReply" data-item="{{item}}" class="comment-item">
+            <span class="person">{{item.Replyor}}</span>
+            <span>{{item.reply_id == 0 ? '评论': '回复'}}</span>
+            <span class="person">{{item.reply_id ? item.ReplyMan : ''}}</span>
+            <span>:{{item._content}}</span>
+        </view>
     </view>
 </view>

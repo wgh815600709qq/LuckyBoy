@@ -63,24 +63,36 @@ async function queryByOne(data) {
       }
     }
   })
-  Comments.belongsTo(User, {as: 'ReplyMan', foreignKey: 'replyman_id'})
-  Comments.belongsTo(User, {as: 'Replyor', foreignKey: 'user_id'})
-  // 文章 && 评论
-  var comments = await Comments.findAll({
-    where: {
-      article_id: data.id
-    },
-    include: [
-      {
-        model: User,
-        as: 'ReplyMan'
-      },
-      {
-        model: User,
-        as: 'Replyor'
-      }
-    ]
-  })
+  // alias 重复报错问题
+  var sql = "SELECT `Comments`.`id`, `Comments`.`article_id`, `Comments`.`reply_id`, `Comments`.`replyman_id`, `Comments`.`user_id`, `Comments`.`_content`, `ReplyMan`.`_nickname` AS `ReplyMan`, `Replyor`.`_nickname` AS `Replyor` FROM `comments` AS `Comments`" 
+  + 
+  " LEFT OUTER JOIN `user` AS `ReplyMan` ON `Comments`.`replyman_id` = `ReplyMan`.`id`"
+  +
+  " LEFT OUTER JOIN `user` AS `Replyor` ON `Comments`.`user_id` = `Replyor`.`id` "
+  +
+  " WHERE (`Comments`.`article_id` = '" + data.id + "')"
+
+  var comments = await connection.query(sql, { type: connection.QueryTypes.SELECT })
+  // Comments.belongsTo(User, {as: 'ReplyMan', foreignKey: 'replyman_id'})
+  // Comments.belongsTo(User, {as: 'Replyor', foreignKey: 'user_id'})
+  // // 文章 && 评论
+  // var comments = await Comments.findAll({
+  //   where: {
+  //     article_id: data.id
+  //   },
+  //   include: [
+  //     {
+  //       model: User,
+  //       as: 'ReplyMan',
+  //       attributes: ['id', '_nickname']
+  //     },
+  //     {
+  //       model: User,
+  //       as: 'Replyor',
+  //       attributes: ['id', '_nickname']
+  //     }
+  //   ]
+  // })
   // 添加评论信息
   res.dataValues.comments = comments
   // 添加点赞字段

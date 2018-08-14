@@ -66,9 +66,7 @@ router.post('/queryPublished', async (req, res, next) => {
 // 查询我的文章 pageNo pageSize id
 router.post('/queryMyArticles', async(req, res, next) => {
     var data = req.body
-    var result = await queryByPageAndSort(Object.assign(data, {data: {
-        _author: data.id
-    }, sort: [['_status', 'DESC'], ['created_at', 'DESC']]}))
+    var result = await queryByPageAndSort(Object.assign(data, {sort: [['_status', 'DESC'], ['created_at', 'DESC']]}))
     if (result) {
         res.send(Object.assign({}, success, { data: result }))
     } else {

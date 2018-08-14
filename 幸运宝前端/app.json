@@ -9,7 +9,8 @@
     "pages/article/check/index",
     "pages/article/detail/index",
     "pages/mine/message/index",
-    "pages/mine/message/detail/index"
+    "pages/mine/message/detail/index",
+    "pages/mine/my-article/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#d4237a",
