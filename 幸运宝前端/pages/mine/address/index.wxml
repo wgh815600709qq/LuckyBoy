@@ -1,0 +1,9 @@
+<view class="address-page">
+  <view class="address-item" wx:for="{{list}}">
+    <text class="name">{{item._receiver}}</text>
+    <text class="phone">{{item.phone}}</text>
+    <text class="address">{{item._province}}-{{item._city}}-{{item._district}}</text>
+  </view>
+  <address-detail wx:if="{{openDetail}}"></address-detail>
+  <btn bindtap="addAddress">新增收货地址</btn>
+</view>

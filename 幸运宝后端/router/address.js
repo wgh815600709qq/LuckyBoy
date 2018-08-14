@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 var { success, fail } = require('../config/code-msg.js')
-var { queryAll, add, queryByOne, deleteByOne, editById, setDefault} = require('../module/auth.js')
+var { queryAll, add, queryByOne, deleteByOne, editById, setDefault} = require('../module/address.js')
 // 增
 router.post('/add', async (req, res, next) => {
     var result = await add(req.body)

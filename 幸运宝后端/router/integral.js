@@ -6,9 +6,7 @@ var { queryByPageAndSort } = require('../module/integral.js')
 // 获取积分记录 // pageSize pageNo id
 router.post('/queryHistory', async (req, res) => {
     var data = req.body
-    var result = await queryByPageAndSort(Object.assign(data, {data: {
-        user_id: data.id
-    }, sort: ['created_at', 'DESC']}))
+    var result = await queryByPageAndSort(Object.assign(data, {sort: ['created_at', 'DESC']}))
     if (result) {
         res.send(Object.assign({}, success, { data: result }))
     } else {

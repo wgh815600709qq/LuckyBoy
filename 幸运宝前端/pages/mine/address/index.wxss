@@ -1,0 +1,28 @@
+.address-item{
+  position: relative;
+  height: 200rpx;
+  width: calc(100% - 40rpx);
+  margin: 20rpx;
+  border-radius: 20rpx;
+  background-color:#528298;
+}
+.name{
+ position: absolute;
+ font-size: 48rpx;
+ left:30rpx;
+ top:20rpx;
+ color:#fff;
+}
+.phone{
+ position: absolute;
+ font-size: 36rpx;
+ right:30rpx;
+ top:20rpx;
+}
+.address{
+ position: absolute;
+ font-size: 32rpx;
+ right:30rpx;
+ bottom:20rpx;
+ color:#fff;
+}

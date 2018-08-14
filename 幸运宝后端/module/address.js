@@ -2,8 +2,8 @@ var { connection, Sequelize } = require('../database/connect.js')
 const addressModel = require('../schema/address.js')
 var Address = addressModel(connection, Sequelize)
 
-async function queryAll () {
-  let res = await Address.findAll()
+async function queryAll (data) {
+  let res = await Address.findAll({where: data})
   return res
 }
 
@@ -16,9 +16,14 @@ async function queryByOne (data) {
 
 // 最多允许5个地址
 async function add (data) {
-  let count = await Address.count()
+  console.log('**********')
+  let count = await Address.count({where: {user_id: data.user_id}})
   if (count > 4) {
     return {errmsg: '地址不能超过5个'}
+  } else if (count === 0) {
+    data.is_default = 1 // 第一个地址是默认地址
+    let res = await Address.create(data)
+    return res
   } else {
     let res = await Address.create(data)
     return res

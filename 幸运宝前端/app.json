@@ -10,7 +10,10 @@
     "pages/article/detail/index",
     "pages/mine/message/index",
     "pages/mine/message/detail/index",
-    "pages/mine/my-article/index"
+    "pages/mine/my-article/index",
+    "pages/mine/integral/index",
+    "pages/mine/address/index",
+    "pages/mine/address/address-detail/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#d4237a",

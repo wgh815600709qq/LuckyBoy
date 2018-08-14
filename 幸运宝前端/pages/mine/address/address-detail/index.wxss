@@ -1,0 +1,31 @@
+.detail-address{
+  background-color: #fff;
+}
+.item {
+  margin: 40rpx 20rpx;
+  border-bottom: 1px solid #eee;
+}
+.item .title{
+  height: 60rpx;
+  font-size:36rpx;
+  margin:20rpx 0;
+}
+.item input{
+  height: 60rpx;
+  font-size:32rpx;
+  /* border-bottom: 1px solid #eee; */
+}
+.boder-bottom{
+  /* border-bottom: 1px solid #eee; */
+}
+.placeholder{
+  color:#999;
+  font-size:32rpx;
+  text-align:left;
+}
+.leftpart{
+  text-align:left;
+}
+textarea{
+  width:100%;
+}

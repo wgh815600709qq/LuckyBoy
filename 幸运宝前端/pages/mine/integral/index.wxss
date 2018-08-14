@@ -1,0 +1,32 @@
+.integral-page{
+  background-color:#fff;
+}
+
+.integral-item{
+  position: relative;
+  height: 300rpx;
+  width: calc(100% - 40rpx);
+  margin: 20rpx;
+  border-radius: 20rpx;
+  background-color:#cad7b9;
+}
+
+.remark{
+  position: absolute;
+  top: 20rpx;
+  left:20rpx;
+}
+.integral{
+  font-size: 100rpx;
+  position: absolute;
+  right: 40rpx;
+  top: 20rpx;
+  color: #d4237a;
+}
+
+.time{
+  position: absolute;
+  bottom: 20rpx;
+  right:20rpx;
+  font-size: 28rpx;
+}

@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "收货地址",
+    "usingComponents": {
+      "btn": "/components/button/index"
+    }
+}

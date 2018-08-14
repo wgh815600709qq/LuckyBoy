@@ -15,7 +15,7 @@
       <image src="/images/order.png"></image>
       <text>我的订单</text>
     </view>
-    <view class="cell-item">
+    <view class="cell-item" data-url="./integral/index" bindtap="linkTo">
       <image src="/images/score.png"></image>
       <text>积分记录</text>
     </view>
@@ -29,7 +29,7 @@
       <text class="bardge" wx:if="{{unread}}">{{unread}}</text>
     </view>
   </view>
-  <view class="cell-item">
+  <view class="cell-item" data-url="./address/index" bindtap="linkTo">
     <image src="/images/address.png"></image>
     <text>收货地址</text>
   </view>

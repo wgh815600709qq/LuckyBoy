@@ -3,6 +3,8 @@ import authRouter from './router/auth'
 import userRouter from './router/user'
 import articlesRouter from './router/articles'
 import messageRouter from './router/message'
+import integralRouter from './router/integral'
+import addressRouter from './router/address'
 const path = require('path')
 const app = express()
 const host = process.env.HOST || '127.0.0.1'
@@ -26,8 +28,8 @@ app.use(Auth) // Router Auth
 app.use('/user', userRouter)
 app.use('/articles', articlesRouter)
 app.use('/message', messageRouter)
-
-
+app.use('/integral', integralRouter)
+app.use('/address', addressRouter)
 
 
 // At last solve 404

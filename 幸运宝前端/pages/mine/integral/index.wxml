@@ -1,0 +1,8 @@
+<wxs src="../../../utils/utils.wxs" module="tool"/>
+<view class="integral-page">
+  <view wx:for="{{list}}" class="integral-item">
+    <text class="remark">{{item._remark}}</text>
+    <text class="integral">+{{item._integral}}</text>
+    <text class="time">{{tool.formatTime(item.created_at)}}</text>
+  </view>
+</view>

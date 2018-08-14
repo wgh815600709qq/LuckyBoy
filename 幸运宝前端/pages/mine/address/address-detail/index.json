@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "收货地址管理",
+  "usingComponents": {
+    "city-picker": "/components/city-picker/index",
+    "btn": "/components/button/index"
+  }
+}

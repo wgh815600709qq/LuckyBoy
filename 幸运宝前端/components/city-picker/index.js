@@ -58,7 +58,9 @@ Component({
             })
         },
         open() {
-            this.getData()
+          this.setData({
+            show:true
+          })
         },
         getData () {
             wx.request({
@@ -69,10 +71,23 @@ Component({
                         this.setData({
                             cityData: res.data.data
                         })
-                        var provinces = Object.keys(this.cityData)
+                        var provinces = Object.keys(res.data.data)
+                        var province = provinces[0]
+                        var citys = Object.keys(this.data.cityData[province])
+                        var city = citys[0]
+                        var districts = this.data.cityData[province][city]
+                        var district = districts[0]
+                        console.log('provinces', provinces)
                         this.setData({
-                            provinces: provinces
+                            provinces: provinces,
+                            province: province,
+                            citys:citys,
+                            city: city,
+                            districts: districts,
+                            district: district,
+                            value: [0, 0, 0]
                         })
+   
                     }
                 },
                 fail: (err) => {
@@ -80,6 +95,9 @@ Component({
                 }
             })
         }
+    },
+    attached() {
+      this.getData()
     }
   })
   

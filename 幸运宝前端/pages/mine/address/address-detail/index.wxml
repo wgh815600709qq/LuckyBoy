@@ -1,0 +1,22 @@
+<view class="detail-address">
+  <view class="item">
+    <view class="title">收货人:</view>
+    <input type="text" placeholder-class='placeholder' placeholder='输入收货人' value="{{receiver}}" bindinput='receiverChange'></input>
+  </view>
+  <view class="item">
+    <view class="title">联系电话:</view>
+    <input type="number" placeholder-class='placeholder' placeholder='手机号' value="{{phone}}" bindinput='phoneChange'></input>
+  </view>
+  <view class="item">
+    <view class="title">省市区:</view>
+    <city-picker bindchange='cityChange'>
+      <view class="placeholder border-bottom" wx:if="{{!province && !city && !district}}">请选择省市区</view>
+      <view class="leftpart border-bottom" wx:if="{{province && city && district}}">{{province}} -- {{city}} -- {{district}}</view>
+    </city-picker>
+  </view>
+  <view class="item">
+    <view class="title">详细地址:</view>
+    <textarea type="text" placeholder-class='placeholder' placeholder='输入详细地址(到门号)' value="{{detail}}" bindinput='detailChange'></textarea>
+  </view>
+  <btn bindtap="save">保存</btn>
+</view>
