@@ -45,10 +45,10 @@ async function queryByPageAndSort(query) {
 // 查详情关联查找
 async function queryByOne(data) {
   // 文章 && 用户 关联关系 Articles._author == User.id
-  User.hasMany(Articles, { foreignKey: '_author' })
+  User.hasMany(Articles, { foreignKey: '_author'})
   Articles.belongsTo(User, { foreignKey: '_author' })
   let res = await Articles.findOne({
-    where: data,
+    where: {id: data.id},
     include: [
       { model: User }
     ]
@@ -63,16 +63,23 @@ async function queryByOne(data) {
       }
     }
   })
-    // 文章 && 评论
+  User.hasMany(Comments,{foreignKey: 'replyman_id'})
+  Comments.belongsTo(User, {foreignKey: 'replyman_id'})
+  // 文章 && 评论
   var comments = await Comments.findAll({
     where: {
-      aritcle_id: data.id
-    }
+      article_id: data.id
+    },
+    include: [
+      {
+        model: User
+      }
+    ]
   })
   // 添加评论信息
-  res.comments = comments
+  res.dataValues.comments = comments
   // 添加点赞字段
-  res.is_praised = isPraised ? true : false
+  res.dataValues.is_praised = isPraised ? true : false
   return res
 }
 
@@ -218,7 +225,7 @@ async function cancelPraise(data) {
 }
 
 // 评论 [article_id, reply_id回复id, _content, user_id, replyman_id被回复的人id]
-async function commentArticle() {
+async function commentArticle(data) {
   return connection.transaction(t => {
     // 更新评论表
     return Comments.create(data, { transaction: t }).then(comments => {

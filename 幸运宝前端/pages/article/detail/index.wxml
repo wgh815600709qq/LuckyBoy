@@ -6,11 +6,11 @@
     </view>
     <view class="content">{{detail._content}}</view>
     <view class="line">
-        <view class="praise">
+        <view class="praise" bind:tap="toPraise">
             <image src="/images/praise.png"></image>
             <text>{{detail.praise_num}}</text>
         </view>
-        <view class="comment">
+        <view class="comment" bind:tap="toComment">
             <image src="/images/comment.png"></image>
             <text>{{detail.comment_num}}</text>
         </view>
@@ -22,5 +22,12 @@
             <image src="/images/refuse.png"></image>
             <text>驳回</text>
         </view>
+    </view>
+    <view class="input-area" wx:if="{{openInput}}">
+        <input type="text" focus value="{{newComment}}" placeholder-class="placeholder" bindinput="inputChange" placeholder="{{placeholder}}"></input>
+        <button type="mini" bind:tap="sendMsg">发送</button>
+    </view>
+    <view class="comments">
+        <view wx:for="{{detail.comments}}" bindtap="toReply">{{item._content}}</view>
     </view>
 </view>

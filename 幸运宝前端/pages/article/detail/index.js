@@ -5,14 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    detail: {}
+    detail: {},
+    newComment: '',
+    openInput: false,
+    placeholder: ''
   },
   getDetail() {
     wx.newRequest({
       url: wx.envConfig.host + '/articles/queryDetail',
       method: 'POST',
       data: {
-        id: this.id
+        id: this.id,
+        user_id: wx.getStorageSync('userInfo').id
       },
       success: (res)=>{
         if (res.data.code === 'Y200') {
@@ -30,6 +34,77 @@ Page({
       },
       fail: ()=>{}
     });
+  },
+  // 点赞
+  toPraise() {
+    if (this.data.detail.is_praised) {
+      wx.showToast({
+        title: '你已经点过赞',
+        icon: 'none',
+        duration: 1500,
+        mask: true,
+      });
+      return
+    }
+    wx.newRequest({
+      url: wx.envConfig.host + '/articles/praise',
+      method: 'POST',
+      data: {
+        article_id: this.id,
+        user_id: wx.getStorageSync('userInfo').id
+      },
+      success: (res) => {
+        this.getDetail()
+      }
+    })
+  },
+  // 评论作者
+  toComment() {
+    // 打开评论列表
+    // article_id, reply_id回复id, _content, user_id, replyman_id被回复的人id
+    this.reply_id = 0
+    this.replyman_id = this.data.detail._author
+    this.setData({
+      openInput: true,
+      placeholder: '评论'
+    })
+  },
+  // 回复
+  toReply(e) {
+    this.reply_id = e.currentTarget.dataset.reply_id
+    this.setData({
+      openInput: true,
+      placeholder: '回复'
+    })
+  },
+  inputChange(e) {
+    console.log('e', e.detail.value)
+    this.setData({
+      newComment: e.detail.value
+    })
+  },
+  // 发送评论
+  sendMsg() {
+    if (!this.data.newComment) {
+      return
+    }
+    wx.newRequest({
+      url: wx.envConfig.host + '/articles/comment',
+      method: 'POST',
+      data: {
+        article_id: this.data.detail.id,
+        _content: this.data.newComment,
+        reply_id: this.reply_id,
+        user_id: wx.getStorageSync('userInfo').id,
+        replyman_id: this.replyman_id
+      },
+      success: (res) => {
+        this.getDetail()
+      },
+      fail: (err) => {
+
+      }
+    })
   },
   // 通过
   allowAccess() {

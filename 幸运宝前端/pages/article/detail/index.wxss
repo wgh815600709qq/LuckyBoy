@@ -38,3 +38,16 @@
     height: 44rpx;
     margin-right: 10rpx;
 }
+.input-area{
+  display: flex;
+  align-items: center;
+  padding:20rpx;
+}
+.input-area input{
+  flex:1;
+  border-bottom:1px solid #eee;
+  height:90rpx;
+}
+.placeholder{
+  line-height: 90rpx;
+}

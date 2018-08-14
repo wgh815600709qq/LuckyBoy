@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    return sequelize.define('Comment', {
+    return sequelize.define('Comments', {
       id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -27,7 +27,7 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false
       }
     }, {
-      tableName: 'comment',
+      tableName: 'comments',
       paranoid: true // Soft deletion
     })
   }

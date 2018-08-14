@@ -2,7 +2,7 @@ import { queryByOne } from '../module/articles.js';
 const express = require('express')
 const router = express.Router()
 var { success, fail } = require('../config/code-msg.js')
-var { add, queryByPageAndSort, allow, fuzzySearch, editArticleById, praiseArticle, cancelPraise } = require('../module/articles.js')
+var { add, queryByPageAndSort, allow, fuzzySearch, editArticleById, praiseArticle, cancelPraise,commentArticle } = require('../module/articles.js')
 
 // 文章提交审核
 router.post('/add', async (req, res, next) => {
@@ -110,6 +110,15 @@ router.post('/praise', async(req, res) => {
 // 取消赞
 router.post('/cancelPraise', async(req, res) => {
     let result = await cancelPraise(req.body)
+    if (result) {
+        res.send(Object.assign({}, success, { data: result }))
+    } else {
+        res.send(fail)
+    }
+})
+
+router.post('/comment', async(req, res) => {
+    let result = await commentArticle(req.body)
     if (result) {
         res.send(Object.assign({}, success, { data: result }))
     } else {

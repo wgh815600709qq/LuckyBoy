@@ -4,6 +4,13 @@ Component({
      * 组件的属性列表
      */
     properties: {
+    },
+  
+    /**
+     * 组件的初始数据
+     */
+    data: {
+        cityData: null,
         provinces: [],
         province: '',
         citys: [],
@@ -12,13 +19,6 @@ Component({
         district: '',
         value: [0, 0, 0],
         show: false
-    },
-  
-    /**
-     * 组件的初始数据
-     */
-    data: {
-        cityData: null
     },
   
     /**
@@ -80,9 +80,6 @@ Component({
                 }
             })
         }
-    },
-    attached: {
-
     }
   })
   
