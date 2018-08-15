@@ -1,5 +1,5 @@
 <view class="address-page">
-  <view class="address-item" wx:for="{{list}}">
+  <view class="address-item" wx:for="{{list}}" bindtap="edit" data-id="{{item.id}}">
     <text class="name">{{item._receiver}}</text>
     <text class="phone">{{item.phone}}</text>
     <text class="address">{{item._province}}-{{item._city}}-{{item._district}}</text>

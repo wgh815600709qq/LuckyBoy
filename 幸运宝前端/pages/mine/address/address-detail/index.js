@@ -11,16 +11,38 @@ Page({
   },
 
   onLoad: function(options) {
-    this.id = options.id
-    if (this.id) {
+    this.setData({
+      id: options.id
+    })
+    if (options.id) {
       this.setData({
         model: 'edit'
       })
+      this.queryDetail()
     } else {
       this.setData({
         model: 'add'
       })
     }
+  },
+  queryDetail() {
+    wx.newRequest({
+      url: wx.envConfig.host + '/address/queryDetail',
+      method: 'POST',
+      data: {
+        id: this.data.id
+      },
+      success: (res) => {
+        this.setData({
+          receiver: res.data.data._receiver,
+          phone: res.data.data._phone,
+          province: res.data.data._province,
+          city: res.data.data._city,
+          district: res.data.data._district,
+          detail: res.data.data._detail
+        })
+      }
+    })
   },
   cityChange(e) {
     var data = e.detail.value
@@ -49,7 +71,37 @@ Page({
   save() {
     // todo校验
     if (this.data.model === 'edit') {
+      wx.request({
+        url: wx.envConfig.host + '/address/update',
+        method: 'POST',
+        data: {
+          id: this.data.id,
+          data: {
+            _receiver: this.data.receiver,
+            _phone: this.data.phone,
+            _province: this.data.province,
+            _city: this.data.city,
+            _district: this.data.district,
+            _detail: this.data.detail,
+            user_id: wx.getStorageSync('userInfo').id
+          }
+        },
+        success: (res) => {
+          if (res.data.code === 'Y200') {
+            wx.showToast({
+              title: '修改成功',
+            })
+          } else {
+            wx.showToast({
+              title: '修改失败',
+            })
+          }
+        },
+        fail: (err) => {
+          console.log(err)
+        }
 
+      }) 
     }
     if (this.data.model === 'add') {
       wx.newRequest({

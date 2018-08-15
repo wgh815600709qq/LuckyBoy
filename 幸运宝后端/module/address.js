@@ -38,7 +38,7 @@ async function deleteByOne (data) {
 }
 
 // 除默认地址外其他数据的修改
-async function editById (id, data) {
+async function updateById (id, data) {
   let res = await Address.update(data, {
     where: {id: id}
   })
@@ -67,6 +67,6 @@ export {
   add,
   queryByOne,
   deleteByOne,
-  editById,
+  updateById,
   setDefault
 }
