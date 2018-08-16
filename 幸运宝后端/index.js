@@ -32,6 +32,8 @@ app.use('/integral', integralRouter)
 app.use('/address', addressRouter)
 
 
+
+
 // At last solve 404
 app.use('*', function(req, res) {
   res.status(404).send({ code: 'Y404' , msg: '未定义接口' })

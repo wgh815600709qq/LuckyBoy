@@ -12,18 +12,6 @@ router.post('/add', async (req, res, next) => {
     }
 })
 
-// 改
-router.post('/update', async (req, res, next) => {
-    console.log('fuck you')
-    var result = await updateById(req.body.id, req.body.data)
-    if (result) {
-        res.send(Object.assign({}, success, { msg: result.errmsg }))
-    } else {
-        res.send(fail)
-    }
-})
-
-
 // 删 
 router.post('/delete', async (req, res) => {
     var result = await deleteByOne(req.body)
@@ -57,7 +45,22 @@ router.post('/queryDetail', async (req, res) => {
 
 // 设置默认地址
 router.post('/setDefault', async (req, res) => {
-    var result = await setDefault(res.body)
+    var result = await setDefault(req.body)
+    if (result) {
+        res.send(Object.assign({}, success, { data: result }))
+    } else {
+        res.send(fail)
+    }
+})
+
+
+// 修改
+router.post('/update', async (req, res) => {
+    console.log('fuck')
+    var data = req.body
+    var id = data.id
+    delete data.id
+    var result = await updateById(id, data)
     if (result) {
         res.send(Object.assign({}, success, { data: result }))
     } else {

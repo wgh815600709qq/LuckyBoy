@@ -1,5 +1,6 @@
 // Sever Error Handler
 function errorHandler(err, req, res, next) {
-  res.status(500).send({ msg: err || 'something wrong.' })
+  console.log('百慕大错误区...')
+  res.status(500).send({ msg: err })
 }
 module.exports = errorHandler

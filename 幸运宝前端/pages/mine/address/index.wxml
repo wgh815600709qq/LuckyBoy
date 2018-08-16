@@ -1,9 +1,17 @@
 <view class="address-page">
-  <view class="address-item" wx:for="{{list}}" bindtap="edit" data-id="{{item.id}}">
-    <text class="name">{{item._receiver}}</text>
-    <text class="phone">{{item.phone}}</text>
-    <text class="address">{{item._province}}-{{item._city}}-{{item._district}}</text>
-  </view>
-  <address-detail wx:if="{{openDetail}}"></address-detail>
+  <scroll-view scroll-x style="width: 100%" wx:for="{{list}}" scroll-left="{{item.scrollLeft}}">
+    <view class="container">
+      <view class="address-item" bindtap="edit" data-id="{{item.id}}">
+        <text class="name">{{item._receiver}}</text>
+        <text class="phone">{{item.phone}}</text>
+        <text class="address">{{item._province}}-{{item._city}}-{{item._district}}</text>
+        <text class="isdefault">{{item.is_default ? '默认地址': ''}}</text>
+      </view>
+      <view class="setting">
+        <view class="default" bindtap="setDefault" data-id="{{item.id}}">设为默认</view>
+        <view class="delete" bindtap="deletes" data-id="{{item.id}}">删除</view>
+      </view>
+    </view>
+  </scroll-view>
   <btn bindtap="addAddress">新增收货地址</btn>
 </view>

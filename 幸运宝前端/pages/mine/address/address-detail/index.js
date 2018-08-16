@@ -14,7 +14,7 @@ Page({
     this.setData({
       id: options.id
     })
-    if (options.id) {
+    if (+options.id) {
       this.setData({
         model: 'edit'
       })
@@ -71,12 +71,11 @@ Page({
   save() {
     // todo校验
     if (this.data.model === 'edit') {
-      wx.request({
+      wx.newRequest({
         url: wx.envConfig.host + '/address/update',
         method: 'POST',
         data: {
-          id: this.data.id,
-          data: {
+            id: this.data.id,
             _receiver: this.data.receiver,
             _phone: this.data.phone,
             _province: this.data.province,
@@ -84,7 +83,6 @@ Page({
             _district: this.data.district,
             _detail: this.data.detail,
             user_id: wx.getStorageSync('userInfo').id
-          }
         },
         success: (res) => {
           if (res.data.code === 'Y200') {

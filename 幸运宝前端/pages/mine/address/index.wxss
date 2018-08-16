@@ -1,7 +1,7 @@
 .address-item{
   position: relative;
   height: 200rpx;
-  width: calc(100% - 40rpx);
+  width: calc(100% - 160rpx);
   margin: 20rpx;
   border-radius: 20rpx;
   background-color:#528298;
@@ -25,4 +25,31 @@
  right:30rpx;
  bottom:20rpx;
  color:#fff;
+}
+
+.isdefault{
+  position: absolute;
+ font-size: 32rpx;
+ left:30rpx;
+ bottom:20rpx;
+ color:#D83181; 
+}
+
+.container{
+  display: flex;
+  width: calc(100% + 120rpx);
+}
+
+.setting{
+  flex-basis: 90rpx;
+  font-size: 32rpx;
+}
+.setting .delete{
+  color: #D83181;
+  margin-top: 40rpx;
+}
+
+.setting .default{
+  color: chocolate;
+  margin-top: 20rpx;
 }

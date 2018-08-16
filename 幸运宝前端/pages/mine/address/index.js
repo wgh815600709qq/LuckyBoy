@@ -16,8 +16,49 @@ Page({
   },
 
   //左滑删除
-  deletes() {
-
+  deletes(e) {
+    var id = e.currentTarget.dataset.id
+    wx.newRequest({
+      url: wx.envConfig.host + '/address/delete',
+      method: 'POST',
+      data: {
+        id: id
+      },
+      success: (res) => {
+        if (res.data.code =='Y200') {
+          wx.showToast({
+            title: '删除成功'
+          })
+          this.getAddressList()
+        } else {
+          wx.showToast({
+            title: '删除失败'
+          })
+        }
+      }
+    })
+  },
+  setDefault(e) {
+    var id = e.currentTarget.dataset.id
+    wx.newRequest({
+      url: wx.envConfig.host + '/address/setDefault',
+      method: 'POST',
+      data: {
+        id: id
+      },
+      success: (res) => {
+        if (res.data.code =='Y200') {
+          wx.showToast({
+            title: '设置成功'
+          })
+          this.getAddressList()
+        } else {
+          wx.showToast({
+            title: '设置失败'
+          })
+        }
+      }
+    })
   },
   addAddress() {
     wx.navigateTo({
@@ -28,7 +69,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getAddressList()
   },
   getAddressList() {
     wx.newRequest({
@@ -42,6 +82,7 @@ Page({
         list.map(it => {
           var phone = it._phone
           it.phone = phone.slice(0, 4) + '-' + phone.slice(4, 8) + '-' + phone.slice(8, 12)
+          it.scrollLeft = 0
           return it
         })
         this.setData({
@@ -61,7 +102,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getAddressList()
   },
 
   /**

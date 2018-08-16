@@ -17,7 +17,6 @@ router.get('/getToken', async (req, res, next) => {
 
 
 router.get('/getCCD', async(req, res) => {
-    console.log('***进来了')
     res.send({
         code: 'Y200',
         msg: '操作成功',
